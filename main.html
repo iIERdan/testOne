@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head id="main">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Profi</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/l-ibs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+</head>
+
+<body>
+
+    <header id="3dprofi">
+
+        <div class="logo">
+            <img src="../icons/logo.png" alt="#">
+        </div>
+
+
+        <div class="name_logo"><a href="#3dprofi">3DProfi</a></div>
+
+        <div class="container">
+            <a href="#kurse">
+                <div>Курсы</div>
+            </a>
+            <a href="#school">
+                <div>Преподователи</div>
+            </a>
+            <a href="#reviews">
+                <div>Отзывы</div>
+            </a>
+            <a href="#contacts">
+                <div>Контакты</div>
+            </a>
+
+            <a href="#faq">
+                <div>FAQ</div>
+            </a>
+        </div>
+        <a href="#" onclick="openSecondModal()">
+            <div class="box_login">
+            </div>
+            <div class="name_login">Войти</div>
+        </a>
+        <!--Модальное окно -->
+        <div id="secondModal" class="modal1">
+            <div class="modal_content1">
+                <span class="close" onclick="closeSecondModal()">&times;</span>
+                <p class="modal_text3">Окно регистрации</p>
+                <form id="registrationForm" onsubmit="handleRegistration(event)">
+                    <input clatype="text" id="username2" name="username" placeholder="Имя и Фамилия" required>
+                    <input type="email" id="e-mail2" name="e-mail" placeholder="Email" required>
+                    <input type="tel" id="tel2" name="tel" placeholder="Номер телефона" required>
+                    <input type="password" id="password" name="password" placeholder="Придумайте пароль" required>
+                    <button class="modal_bt" type="submit">Зарегистрироваться</button>
+                    <label class="login_password" for="text"><a href="#"
+                            onclick="openProfileModal(); closeSecondModal()">Войти с паролем</a></label>
+                    <label class="login_twitter" for="text"><a href="#" onclick="openTwitterModal()">Войти через
+                            Twitter</a></label>
+                </form>
+            </div>
+        </div>
+
+        <script>
+
+            document.addEventListener("DOMContentLoaded", function () {
+                const checkboxes = document.querySelectorAll('.checkbox-input');
+                checkboxes.forEach(checkbox => {
+                    checkbox.checked = false; // Снимаем отметку
+                });
+            });
+
+            function openSecondModal() {
+                document.getElementById("secondModal").style.display = "block";
+            }
+            function closeSecondModal() {
+                document.getElementById("secondModal").style.display = "none";
+            }
+            window.onclick = function (event) {
+                if (event.target === document.getElementById("secondModal")) {
+                    closeSecondModal();
+                }
+            }
+
+            function handleRegistration(event) {
+                event.preventDefault(); // Предотвращаем стандартное поведение формы
+                // Здесь вы можете выполнить дополнительные проверки или отправить данные на сервер
+
+                // После успешной регистрации, перенаправляем
+                window.location.href = "index_main.html";
+            }
+        </script>
+
+        git
+
+
+
+
+
+
+
+
+
+        <!-- Модальное окно "Забыли пароль?" -->
+        <div id="forgotPasswordModal" class="modal2">
+            <div class="modal_content2">
+                <span class="close" onclick="closeForgotPasswordModal()">&times;</span>
+                <p class="modal_text4">Забыли пароль?</p>
+                <form nsubmit="return handleForgotPassword(event);">
+                    <input type="email" id="resetEmail" name="resetEmail" placeholder="Отправить код по Email" required>
+                    <button type="submit" class="modal_bt">Отправить код</button>
+                    <label class="to_return" for="text"><a href="#"
+                            onclick="openSecondModal(); closeForgotPasswordModal();">Вернуться на страницу
+                            регистрации</a></label>
+
+                </form>
+            </div>
+        </div>
+
+        <!-- Второе модальное окно (предполагается, что оно существует) -->
+        <div id="secondModal" class="modal1">
+            <div class="modal_content1">
+                <span class="close" onclick="closeSecondModal()">&times;</span>
+                <!-- Содержимое второго окна -->
+            </div>
+        </div>
+
+        <script>
+            function openForgotPasswordModal() {
+                closeSecondModal(); // Закрываем второе модальное окно
+                document.getElementById("forgotPasswordModal").style.display = "block";
+            }
+
+            function closeForgotPasswordModal() {
+                document.getElementById("forgotPasswordModal").style.display = "none";
+            }
+
+            function openSecondModal() {
+                closeForgotPasswordModal(); // Закрываем модальное окно "Забыли пароль?"
+                document.getElementById("secondModal").style.display = "block";
+            }
+
+            function closeSecondModal() {
+                document.getElementById("secondModal").style.display = "none";
+            }
+
+            window.onclick = function (event) {
+                if (event.target === document.getElementById("forgotPasswordModal")) {
+                    closeForgotPasswordModal();
+                }
+                if (event.target === document.getElementById("secondModal")) {
+                    closeSecondModal();
+                }
+            }
+        </script>
+
+
+        <!-- Модальное окно для профиля -->
+        <div id="profileModal" class="moda1" style="display:none;">
+            <div class="modal_conten1">
+                <span class="close" onclick="closeProfileModal()">&times;</span>
+                <p class="modal_tex1">Войти в личный кабинет</p>
+                <form onsubmit="return handleProfileLogin(event);">
+                    <input type="email" id="e-mail" name="profile-email" placeholder="Введите номер телефона или Email"
+                        required>
+                    <input type="password" id="password" name="profile-password" placeholder="Введите пароль" required>
+                    <button type="submit" class="modal_bt">Войти</button>
+                    <label class="login_password1" for="text">
+                        <label type="text" onclick="openForgotPasswordModal(); closeProfileModal();">Забыли
+                            пароль?</label>
+                    </label>
+                    <label class="to_return1" for="text">
+                        <label type="text" onclick="openSecondModal(); closeProfileModal();">На страницу
+                            регистрации</label>
+                    </label>
+                </form>
+            </div>
+        </div>
+
+        <script>
+            function openSecondModal() {
+                closeProfileModal();
+                document.getElementById("secondModal").style.display = "block";
+            }
+
+            function closeSecondModal() {
+                document.getElementById("secondModal").style.display = "none";
+            }
+
+            function openProfileModal() {
+                closeSecondModal();
+                document.getElementById("profileModal").style.display = "block";
+            }
+
+            function closeProfileModal() {
+                document.getElementById("profileModal").style.display = "none";
+            }
+
+            window.onclick = function (event) {
+                if (event.target === document.getElementById("secondModal")) {
+                    closeSecondModal();
+                }
+                if (event.target === document.getElementById("profileModal")) {
+                    closeProfileModal();
+                }
+            };
+
+            function handleProfileLogin(event) {
+                event.preventDefault(); // Предотвращаем отправку формы
+                // Здесь вы можете добавить дополнительную логику для проверки логина
+
+                // После успешного входа, перенаправляем на нужную страницу
+                window.location.href = "index_main.html"; // Замените на нужный URL
+            }
+        </script>
+
+
+
+
+
+        <!-- Модальное окно для Twitter -->
+        <div id="twitterModal" class="modal3">
+            <div class="modal_content3">
+                <span class="close" onclick="closeTwitterModal()">&times;</span>
+                <p class="modal_text5">Twitter</p>
+                <form onsubmit="return handleLogin(event);">
+                    <input type="email" id="e-mail" name="e-mail" placeholder="Введите номер телефона или Email"
+                        required>
+                    <input type="password" id="password" name="password" placeholder="Введите пароль" required>
+                    <button type="submit" class="modal_bt">Войти</button>
+                    <label class="login_password1" for="text">
+                        <label type="text" onclick="openForgotPasswordModal(); closeTwitterModal();">Забыли
+                            пароль?</button>
+                        </label>
+                        <label class="to_return1" for="text">
+                            <label type="text" onclick="openSecondModal();">На страницу регистрации</button>
+                            </label>
+                </form>
+            </div>
+        </div>
+
+        <script>
+            function openSecondModal() {
+                closeTwitterModal(); // Закрываем окно Twitter
+                document.getElementById("secondModal").style.display = "block"; // Открываем окно регистрации
+            }
+
+            function closeSecondModal() {
+                document.getElementById("secondModal").style.display = "none";
+            }
+
+            function openTwitterModal() {
+                closeSecondModal(); // Закрываем окно регистрации
+                document.getElementById("twitterModal").style.display = "block"; // Открываем окно Twitter
+            }
+
+            function closeTwitterModal() {
+                document.getElementById("twitterModal").style.display = "none";
+            }
+
+            window.onclick = function (event) {
+                if (event.target === document.getElementById("secondModal")) {
+                    closeSecondModal();
+                }
+                if (event.target === document.getElementById("twitterModal")) {
+                    closeTwitterModal();
+                }
+            };
+
+            function handleLogin(event) {
+                event.preventDefault(); // Предотвращаем отправку формы
+                // Здесь вы можете добавить дополнительную логику для проверки логина
+
+                // После успешного входа, перенаправляем на нужную страницу
+                window.location.href = "index_main.html"; // Замените на нужный URL
+            }
+        </script>
+
+
+
+
+
+        <div class="line_header"></div>
+
+
+
+
+
+
+
+
+    </header>
+    <main>
+        <div class="main_back"></div>
+        <img src="../icons/work.png" alt="#" class="work_student">
+
+
+        <div class="education">
+            <span class="red">О</span>бучение 3D моделированию
+        </div>
+
+        <div class="hints1">помогаем сделать творчество профссией</div>
+        <div class="hints2">только актуальные знания от экспертов индустрии</div>
+        <div class="form">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <a href="#" class="record_link" onclick="openModal()">
+            <div class="record_button"></div>
+            <div class="record">Записаться на бесплатный курс</div>
+        </a>
+        <!-- Модальное окно -->
+        <div id="loginModal" class="modal">
+            <div class="modal_content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <p class="modal_text1">Записаться на бесплатный курс</p>
+                <p class="modal_text2">Менеджер скоро свяжется с вами, чтобы помочь с записью курса.</p>
+                <form onsubmit="return validateForm(event);">
+                    <input stype="text" id="username" name="username" placeholder="Как вас зовут?" required>
+                    <input type="email" id="e-mail" name="e-mail" placeholder="Email" required>
+                    <input type="tel" id="tel" name="tel" placeholder="Номер телефона" required>
+                    <button type="submit" class="modal_bt">Отправить</button>
+                    <div class="checkbox-item">
+                        <input type="checkbox" class="checkbox-input" id="checkbox" required>
+                        <label for="checkbox" class="checkbox-label">Я согласен с Политикой обработки персональных
+                            данных, Согласием Пользователя сайта на обработку персональных данных и договором публичной
+                            оферты</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" class="checkbox-input" id="checkbox15" required>
+                        <label for="checkbox15" class="checkbox-label">Я согласен получать рекламную рассылку
+                            и ознакомился с Согласием на получение рекламной рассылки</label>
+                    </div>
+            </div>
+            </form>
+
+        </div>
+        </div>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const checkboxes = document.querySelectorAll('.checkbox-input');
+                checkboxes.forEach(checkbox => {
+                    checkbox.checked = false; // Снимаем отметку
+                });
+            });
+
+            function openModal() {
+                document.getElementById("loginModal").style.display = "block";
+            }
+            function closeModal() {
+                document.getElementById("loginModal").style.display = "none";
+            }
+            window.onclick = function (event) {
+                if (event.target === document.getElementById("loginModal")) {
+                    closeModal();
+                }
+            }
+            function validateForm(event) {
+                const checkboxes = document.querySelectorAll('.checkbox-input');
+                const allChecked = Array.from(checkboxes).every(checkbox => checkbox.checked);
+
+                if (!allChecked) {
+                    alert("Пожалуйста, примите все условия перед отправкой формы.");
+                    return false; // предотвращает отправку формы, если чекбоксы не отмечены
+                }
+                return true; // отправка формы разрешена
+            }
+        </script>
+
+
+
+
+        <div class="buns">профессия с нуля</div>
+        <div class="buns1">портфолио</div>
+        <div class="buns2">опыт</div>
+        <div class="buns3">карьера</div>
+        <div class="buns4">самые востребованные направления в дизайне</div>
+        <div class="buns5">законченные проекты по реальным брифам</div>
+        <div class="buns6">онлайн стажировка в агенстве</div>
+        <div class="buns7">помощь в трудоустройстве от карьерного центра</div>
+
+        <div class="line_main"></div>
+        <div class="galerry"></div>
+        <div class="text_gall">
+            <span class="red">Г</span>алерея с примерами работ учеников за время обучения
+        </div>
+
+
+
+        <div class="swiper_container_rek">
+            <div class="swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="../icons/png1.png">
+                        <h3>
+                            <p>Андрей Артемович</p>
+                        </h3>
+                    </div>
+                    <div class="swiper-slide"><img src="../icons/png2.png">
+                        <h3>
+                            <p>Михаил Даниилов</p>
+                        </h3>
+                    </div>
+                    <div class="swiper-slide"><img src="../icons/png3.png">
+                        <h3>
+                            <p>Алексей Кузнецов</p>
+                        </h3>
+                    </div>
+                    <div class="swiper-slide"><img src="../icons/png4.png">
+                        <h3>
+                            <p>Василиса Денисьевна</p>
+                        </h3>
+                    </div>
+                    <div class="swiper-slide"><img src="../icons/png5.png">
+                        <h3>
+                            <p>Алина Михайловна </p>
+                        </h3>
+                    </div>
+                    <div class="swiper-slide"><img src="../icons/png6.png">
+                        <h3>
+                            <p>Илья Григорьевич</p>
+                        </h3>
+                    </div>
+                    <div class="swiper-slide"><img src="../icons/png7.png">
+                        <h3>
+                            <p>Илья Михайлович</p>
+                        </h3>
+                    </div>
+                </div>
+            </div>
+            <link href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" rel="stylesheet">
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.6/swiper-bundle.min.js"></script>
+
+            <script>
+
+                const swiper = new Swiper(".swiper", {
+                    slidesPerView: 4,
+                    spaceBetween: 50,
+                    loop: true,
+                    grabCursor: true,
+                    centeredSlides: true,
+                    slideActiveClass: "active",
+                    navigation: {
+                        nextEl: ".next",
+                        prevEl: ".prev"
+                    },
+                    pagination: {
+                        el: ".pagination",
+                        clickable: true
+                    },
+                    pagination: {
+                        el: ".pagination",
+                        clickable: true
+                    },
+                    speed: 1500,
+                    autoplay: {
+                        delay: 1000,
+                        disableOnInteraction: false
+
+                    },
+                });
+                swiper.slides.forEach(slide => {
+                    slide.addEventListener('click', () => {
+                        swiper.autoplay.start();
+                    });
+                });
+            </script>
+        </div>
+
+        <div class="line_main2"></div>
+        <div class="back_main2"></div>
+        <div class="text_main2" id="school">
+            <span class="red">П</span>реподователи которые будут обучать вас
+        </div>
+        <div class="walp1"></div>
+        <div class="walp2"></div>
+        <div class="walp3"></div>
+        <div class="walp1_text">Архитектор и преподователь компьютерной графики</div>
+        <div class="walp2_text">Архитектор и дизайнер</div>
+        <div class="walp3_text">Инженер компьютерной графики</div>
+        <img src="../icons/png_main3.png" alt="#" class="png_main3">
+        <img src="../icons/png2_main3.png" alt="#" class="png2_main3">
+        <img src="../icons/png3_main3.png" alt="#" class="png3_main3">
+        <div class="walp1_name">Павлов Илья</div>
+        <div class="walp2_name">Адам Иванович</div>
+        <div class="walp3_name">Егор Артемович</div>
+        <div class="line_main3"></div>
+        <hr class="line1">
+        <hr class="line2">
+        <div class="back_main3"></div>
+        <div class="text_main3" id="reviews">
+            <span class="red">О</span>тзывы
+        </div>
+
+        <div class="text1_main3">Возможности наших выпускников <span class="yellow">бесконечны</span></div>
+        <div class="line_main4"></div>
+
+
+
+
+        <div class="back_main4"></div>
+        <div class="line_main4"></div>
+
+
+
+        <div class="text_main4" id="kurse">
+            <span class="red">К</span>урсы
+        </div>
+
+
+
+
+        <div class="carousel-container">
+            <div class="carousel-2 owl-carousel">
+                <a href="#link">
+                    <div class="owl-pic">
+                        <img src="../icons/photo1.png" alt="" />
+                        <p>Алексей Кузнецов</p>
+                    </div>
+                </a>
+
+                <a href="#link">
+                    <div class="owl-pic">
+                        <img src="../icons/photo2.png" alt="" />
+                        <p>Михаил Даниилов</p>
+                    </div>
+                </a>
+                <a href="#link">
+                    <div class="owl-pic">
+                        <img src="../icons/photo3.png" alt="" />
+                        <p>Василиса Денисьевна</p>
+                    </div>
+                </a>
+                <a href="#link">
+                    <div class="owl-pic">
+                        <img src="../icons/photo4.png" alt="" />
+                        <p>Алина Михайловна</p>
+                    </div>
+                </a>
+                <a href="#link">
+                    <div class="owl-pic">
+                        <img src="../icons/photo5.png" alt="" />
+                        <p>Мила Григорьевна</p>
+                    </div>
+                </a>
+                <a href="#link">
+                    <div class="owl-pic">
+                        <img src="../icons/photo6.png" alt="" />
+                        <p>Лера Золотая</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <script>
+            let $owl = $('.carousel-2');
+            $owl.children().each(function (index) {
+                $(this).attr('data-position', index);
+            });
+            $(document).on('click', '.owl-item>div', function () {
+                let $speed = 300;
+                $owl.trigger('to.owl.carousel', [$(this).data('position'), $speed]);
+            });
+            $owl.owlCarousel({
+                loop: true,
+                center: true,
+                stagePadding: 70,
+                nav: true,
+                dots: false,
+                navText: ['&lsaquo;', '&rsaquo;'],
+
+                responsive: {
+                    0: { items: 1 },
+                    600: { items: 2 },
+                    992: { items: 3 },
+                    1200: { items: 4 },
+                    1600: { items: 5 }
+                }
+            });
+        </script>
+
+
+
+
+        <div class="container_payment">
+            <p class="text_payment">Выберите блоки обучения</p>
+            <p class="choice_payment_text">Все</p>
+            <p class="frame"></p>
+            <p class="line_payment"></p>
+            <p class="number_payment">1</p>
+
+            <input type="checkbox" class="checkbox-input1" id="checkbox2">
+            <input type="checkbox" class="checkbox-input1" id="checkbox3">
+            <input type="checkbox" class="checkbox-input1" id="checkbox4">
+            <input type="checkbox" class="checkbox-input1" id="checkbox5">
+            <input type="checkbox" class="checkbox-input1" id="checkbox6">
+            <input type="checkbox" class="checkbox-input1" id="checkbox7">
+            <input type="checkbox" class="checkbox-input1" id="checkbox8">
+            <input type="checkbox" class="checkbox-input1" id="checkbox9">
+            <input type="checkbox" class="checkbox-input1" id="checkbox10">
+
+            <script>
+                const checkbox1 = document.getElementById('checkbox1');
+                const checkboxes = document.querySelectorAll('.checkbox-input1'); // Выбираем все чекбоксы
+
+                checkbox1.addEventListener('change', () => {
+                    checkboxes.forEach(checkbox => {
+                        checkbox.checked = checkbox1.checked; // Синхронизируем состояние
+                    });
+                });
+            </script>
+            <div class="container_frame_payment">
+
+                <div class="logo_frame_payment">
+                    <img src="../icons/hp1.png" alt="#">
+                    <p>Знакомство с Блендер</p>
+                </div>
+
+                <div class="logo_frame_payment">
+                    <img src="../icons/hp2.png" alt="#">
+                    <p>Продвинутое моделирование</p>
+                </div>
+                <div class="logo_frame_payment">
+                    <img src="../icons/hp3.png" alt="#">
+                    <p>Детализация и текстуры</p>
+                </div>
+                <div class="logo_frame_payment">
+                    <img src="../icons/hp4.png" alt="#">
+                    <p>2D освещение</p>
+                </div>
+                <div class="logo_frame_payment">
+                    <img src="../icons/hp5.png" alt="#">
+                    <p>2D детализация</p>
+                </div>
+                <div class="logo_frame_payment">
+                    <img src="../icons/hp6.png" alt="#">
+                    <p>3 значит - Руки</p>
+                </div>
+                <div class="logo_frame_payment">
+                    <img src="../icons/hp7.png" alt="#">
+                    <p>Магия движения</p>
+                </div>
+                <div class="logo_frame_payment">
+                    <img src="../icons/hp8.png" alt="#">
+                    <p>Стилизованная голова</p>
+                </div>
+                <div class="logo_frame_payment">
+                    <img src="../icons/hp9.png" alt="#">
+                    <p>Мими-мимика</p>
+                </div>
+                <div class="back_frame1">
+                    <h1>20 900 Р</h1>
+                    <p></p>
+                </div>
+                <div class="back_frame2">
+                    <h1>20 900 Р</h1>
+                    <p></p>
+                </div>
+                <div class="back_frame3">
+                    <h1>21 900 Р</h1>
+                    <p></p>
+                </div>
+                <div class="back_frame4">
+                    <h1>22 900 Р</h1>
+                    <p></p>
+                </div>
+                <div class="back_frame5">
+                    <h1>29 900 Р</h1>
+                    <p></p>
+                </div>
+                <div class="back_frame6">
+                    <h1>29 900 Р</h1>
+                    <p></p>
+                </div>
+                <div class="back_frame7">
+                    <h1>28 900 Р</h1>
+                    <p></p>
+                </div>
+                <div class="back_frame8">
+                    <h1>25 900 Р</h1>
+                    <p></p>
+                </div>
+                <div class="back_frame9">
+                    <h1>24 900 Р</h1>
+                    <p></p>
+                </div>
+                <div class="back_frame10">
+                    <h1>8 часов</h1>
+                    <p></p>
+                </div>
+                <div class="back_frame11">
+                    <h1>8 часов</h1>
+                    <p></p>
+                </div>
+                <div class="back_frame12">
+                    <h1>8 часов</h1>
+                    <p></p>
+                </div>
+                <div class="back_frame13">
+                    <h1>8 часов</h1>
+                    <p></p>
+                </div>
+                <div class="back_frame14">
+                    <h1>8 часов</h1>
+                    <p></p>
+                </div>
+                <div class="back_frame15">
+                    <h1>8 часов</h1>
+                    <p></p>
+                </div>
+                <div class="back_frame16">
+                    <h1>8 часов</h1>
+                    <p></p>
+                </div>
+                <div class="back_frame17">
+                    <h1>8 часов</h1>
+                    <p></p>
+                </div>
+                <div class="back_frame18">
+                    <h1>8 часов</h1>
+                    <p></p>
+                </div>
+                <div class="back_frame19">
+                    <h1>8 часов</h1>
+                    <p></p>
+                </div>
+            </div>
+        </div>
+        <div class="choice1">Выберите способ оплаты</div>
+        <div class="number_line2"></div>
+        <div class="buy_line1"></div>
+        <div class="number1_main4">2</div>
+
+        <div class="payment">
+            <div class="back_payment_full">
+                <div class="back_payment_full1" id="figura1"></div>
+                <div class="back_payment_full2" id="figura2" style="display: none;"></div>
+                <div class="text_payment_full" id="payNow">оплатить сразу</div>
+                <div class="text_payment_full1" id="installment">в рассрочку</div>
+                <div class="payment-summary">
+                    <div id="payNowAmount">0 Р</div>
+                    <div id="installmentAmount">0 Р</div>
+
+                </div>
+            </div>
+
+            <input type="text" placeholder="Ваше имя" name="username" class="input2" id="name">
+            <input type="tel" placeholder="Телефон" name="tel" class="input3" id="phone">
+            <input type="email" placeholder="Электронная почта" name="email" class="input4" id="email">
+            <div class="text_back_payment4">Прежде чем оформить заказ, подтвердите ознакомление с документами</div>
+            <input type="checkbox" class="checkbox-input2" id="checkbox11">
+            <div class="back_payment5"></div>
+            <input type="checkbox" class="checkbox-input2" id="checkbox12">
+            <div class="back_payment6"></div>
+            <input type="checkbox" class="checkbox-input2" id="checkbox13">
+            <div class="back_payment7"></div>
+            <div class="back_payment8">
+                <button class="text_back_payment12" id="submitOrder">Оформить заказ</button>
+            </div>
+        </div>
+
+        <script>
+            document.getElementById('submitOrder').addEventListener('click', function (e) {
+                e.preventDefault(); // чтобы форма не отправлялась, если есть
+
+                // Получаем значения полей
+                const name = document.getElementById('name').value.trim();
+                const phone = document.getElementById('phone').value.trim();
+                const email = document.getElementById('email').value.trim();
+
+                // Получаем чекбоксы
+                const checkbox1 = document.getElementById('checkbox11').checked;
+                const checkbox2 = document.getElementById('checkbox12').checked;
+                const checkbox3 = document.getElementById('checkbox13').checked;
+
+                // Проверка заполненности полей и отметки чекбоксов
+                if (!name || !phone || !email || !checkbox1 || !checkbox2 || !checkbox3) {
+                    alert('Заполните поля');
+                    return; // прерываем выполнение, если что-то не заполнено
+                }
+
+                // Если все заполнено — показываем сообщение
+                alert('Ваш заказ успешно оформлен');
+            });
+        </script>
+
+        <script>
+            const figura1 = document.getElementById('figura1');
+            const figura2 = document.getElementById('figura2');
+            const installmentBtn = document.getElementById('installment');
+            const payNowBtn = document.getElementById('payNow');
+
+            installmentBtn.addEventListener('click', () => {
+                // Показываем фигуру 2, скрываем фигуру 1
+                figura1.style.display = 'none';
+                figura2.style.display = 'block';
+            });
+
+            payNowBtn.addEventListener('click', () => {
+                // Возвращаем исходное состояние
+                figura1.style.display = 'block';
+                figura2.style.display = 'none';
+            });
+
+        </script>
+        <div class="text_back_payment5">Нажмите на кнопку <u>"Оформить заказ"</u></div>
+        <div class="text_back_payment9">Даю <u>согласие</u> на обработку персональных данных</div>
+        <div class="text_back_payment10">Ознакомлен с условиями <u>договоров-оферты</u></div>
+        <div class="text_back_payment11">Даю <u>согласие на рекламную рассылку</u></div>
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const checkboxes = document.querySelectorAll('.checkbox-input1');
+                const installmentAmount = document.getElementById('installmentAmount');
+
+
+                const prices = [
+                    20900, // чекбокс 0
+                    20900, // чекбокс 1
+                    21900, // чекбокс 2
+                    22900, // чекбокс 3
+                    29900, // чекбокс 4
+                    29900, // чекбокс 5
+                    28900, // чекбокс 6
+                    25900, // чекбокс 7
+                    24900, // чекбокс 8
+                    // 8000 — этот прайс, возможно, относится к чекбоксу 9
+                ];
+
+
+                function updatePrices() {
+                    let total = 0;
+                    checkboxes.forEach((checkbox, index) => {
+                        if (checkbox.checked) {
+                            total += prices[index];
+                        }
+                    });
+                    payNowAmount.textContent = total.toLocaleString() + ' Р';
+                    const months = 12;
+                    const perMonth = Math.ceil(total / months);
+
+                    // Обновляем только расчет стоимости за месяц
+                    installmentAmount.textContent = perMonth.toLocaleString() + ' Р';
+
+                    // Можно убрать или оставить пустым блок с общей стоимостью
+                    // document.getElementById('installmentDetails').innerHTML = '';
+                }
+
+                // Обработчики для чекбоксов
+                checkboxes.forEach((checkbox) => {
+                    checkbox.addEventListener('change', updatePrices);
+                });
+
+                // Изначальный расчет
+                updatePrices();
+            });
+        </script>
+
+
+
+
+
+        <div class="line_main5"></div>
+        <div class="back_main5"></div>
+        <img class="photo_3d" src="../icons/3d.png" alt="">
+        <img class="model" src="../icons/model.png" alt="">
+        <div class="text_main5" id="faq">
+            <span class="red">F</span>AQ
+        </div>
+        <div class="back_text_main5">Если у вас останутся какие-то вопросы, вы можете их задать по почте
+            3dmodelirovanie@kurs.com или по телефону +7 955 300 93 23</div>
+
+
+        <div class="containe1r">
+
+            <div class="accordion">
+                <div class="accordion-item">
+                    <button id="accordion-button-1" aria-expanded="false">
+                        <span class="accordion-title">Смогу ли я освоить данный курс</span>
+                        <span class="icon" aria-hidden="true"></span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>
+                            Курс рассчитан как для опытных, так и для начинающих пользователей. Если вы совсем новичок,
+                            то пройдите базовый курс для начинающих, который мы прикладываем к марафону.
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="accordion-item">
+                    <button id="accordion-button-1" aria-expanded="false">
+                        <span class="accordion-title">Что делать, если в процессе обучения у меня возникнут
+                            вопросы?</span>
+                        <span class="icon" aria-hidden="true"></span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>
+                            Вы можете обращаться в нашу службу поддержки клиентов 3dmodelirovanie@kurs.com
+                        </p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button id="accordion-button-1" aria-expanded="false">
+                        <span class="accordion-title"> Какая требуется версия программы?</span>
+                        <span class="icon" aria-hidden="true"></span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>
+                            Уроки курса записаны в blender, но курс подходит и для любой другой версии
+                            программы 2017-2021.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button id="accordion-button-1" aria-expanded="false">
+                        <span class="accordion-title"> Как я попаду в личный онлайн-кабинет?</span>
+                        <span class="icon" aria-hidden="true"></span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>
+                            После регистрации на ваш e-mail придёт ссылка с данными для доступа в закрытый
+                            онлайн-кабинет.
+                        </p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button id="accordion-button-1" aria-expanded="false">
+                        <span class="accordion-title"> Какое время требуется для прохождения курса?</span>
+                        <span class="icon" aria-hidden="true"></span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>
+                            В среднем на прохождение и закрепление курса потребуется 3-5 дней по 2 часа в день.
+                        </p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button id="accordion-button-1" aria-expanded="false">
+                        <span class="accordion-title">Не нашли ответ на свой вопрос?</span>
+                        <span class="icon" aria-hidden="true"></span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>
+                            Обращайтесь в чат в нижнем правом углу экрана или по тел. +7 955 300 93 23. Также можете
+                            написать вопрос в whatsup/telegram +7-900-367-16-75.
+                        </p>
+                    </div>
+                </div>
+
+
+
+
+                <script>const items = document.querySelectorAll('.accordion button');
+
+                    function toggleAccordion() {
+                        const itemToggle = this.getAttribute('aria-expanded');
+
+                        for (i = 0; i < items.length; i++) {
+                            items[i].setAttribute('aria-expanded', 'false');
+                        }
+
+                        if (itemToggle == 'false') {
+                            this.setAttribute('aria-expanded', 'true');
+                        }
+                    }
+
+                    items.forEach((item) => item.addEventListener('click', toggleAccordion));
+
+
+
+                </script>
+
+    </main>
+    <footer>
+        <div class="line_main6"></div>
+        <div class="back_main6" id="contacts">
+            <img src="../icons/logo1.png" alt="">
+            <div><a href="#3dprofi" class="logo1_text">3D Profi</a></div>
+            <div class="logo1_text1">Все права защищены.</div>
+            <p class="footer_text">Информация поддержка</p>
+            <p class="footer_line"></p>
+            <p class="footer_text1">+7 977 034 05 32</p>
+            <p class="footer_text2">vladevs221@gmail.com</p>
+            <p class="footer_text3">Политика конфиденциальности</p>
+            <p class="footer_text4">Мы в социальных сетях</p>
+            <p class="footer_line1"></p>
+            <p class="footer_text5">Telegram</p>
+            <p class="footer_text6">Whatsapp</p>
+            <p class="footer_text7">Vk</p>
+            <p class="img_footer"><img src="../icons/tg.png" alt=""></p>
+            <p class="img_footer1"><img src="../icons/wt.png" alt=""></p>
+            <p class="img_footer2"><img src="../icons/vk.png" alt=""></p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
